@@ -1,13 +1,97 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Revision Planner</title>
+    <title>Revision Planner</title>
 </head>
 <body>
 
 <h1>📚 Revision Planner</h1>
 
-<p>If you can see this page, GitHub Pages is working.</p>
+<input id="subject">
+<button onclick="saveSubject()">
+Add Subject
+</button>
+
+<ul id="subjects"></ul>
+
+<script type="module">
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js";
+
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  getDocs
+}
+from "https://www.gstatic.com/firebasejs/12.4.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  /* apiKey: "AIzaSyDlEjqSBM6wet8PA9hb1f0rDMSHWh2JTO0",
+  authDomain: "brandon-revision-planner.firebaseapp.com",
+
+  projectId: "brandon-revision-planner",
+
+  storageBucket: "brandon-revision-planner.firebasestorage.app",
+
+  messagingSenderId: "73560571331",
+
+  appId: "1:73560571331:web:3195f96abd42baad671176",
+
+  measurementId: "G-SKS5EFBR8Q"*/
+
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+window.saveSubject = async function(){
+
+    const subject =
+        document.getElementById("subject").value;
+
+    if(!subject) return;
+
+    await addDoc(
+        collection(db,"subjects"),
+        {
+            name:subject
+        }
+    );
+
+    loadSubjects();
+
+    document.getElementById("subject").value="";
+};
+
+async function loadSubjects(){
+
+    const list =
+        document.getElementById("subjects");
+
+    list.innerHTML="";
+
+    const snapshot =
+        await getDocs(collection(db,"subjects"));
+
+    snapshot.forEach(doc=>{
+
+        const li =
+            document.createElement("li");
+
+        li.textContent =
+            doc.data().name;
+
+        list.appendChild(li);
+
+    });
+
+}
+
+loadSubjects();
+
+</script>
 
 </body>
 </html>
