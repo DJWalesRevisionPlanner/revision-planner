@@ -1,97 +1,113 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
-    <title>Revision Planner</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.6">
+  <style type="text/css">
+    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px 'Helvetica Neue'; color: #359630; -webkit-text-stroke: #359630}
+    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px 'Helvetica Neue'; color: #bed1fb; color: rgba(190, 209, 251, 0.7); -webkit-text-stroke: rgba(190, 209, 251, 0.7)}
+    span.s1 {font-kerning: none}
+    span.s2 {font: 13.0px 'Apple Color Emoji'; font-kerning: none}
+    span.s3 {font: 13.0px Times; font-kerning: none; -webkit-text-stroke: 0px #000000}
+    span.s4 {font-kerning: none; color: rgba(190, 209, 251, 0.7); background-color: #131313; -webkit-text-stroke: 0px rgba(190, 209, 251, 0.7)}
+    span.s5 {font-kerning: none; background-color: #131313}
+    span.s6 {font-kerning: none; color: #359630; background-color: #131313; -webkit-text-stroke: 0px #359630}
+  </style>
 </head>
 <body>
-
-<h1>📚 Revision Planner</h1>
-
-<input id="subject">
-<button onclick="saveSubject()">
-Add Subject
-</button>
-
-<ul id="subjects"></ul>
-
-<script type="module">
-
-import { initializeApp }
-from "https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js";
-
-import {
-  getFirestore,
-  collection,
-  addDoc,
-  getDocs
-}
-from "https://www.gstatic.com/firebasejs/12.4.0/firebase-firestore.js";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyDlEjqSBM6wet8PA9hb1f0rDMSHWh2JTO0",
-  authDomain: "brandon-revision-planner.firebaseapp.com",
-
-  projectId: "brandon-revision-planner",
-
-  storageBucket: "brandon-revision-planner.firebasestorage.app",
-
-  messagingSenderId: "73560571331",
-
-  appId: "1:73560571331:web:3195f96abd42baad671176",
-
-  measurementId: "G-SKS5EFBR8Q"
-
-};
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
-window.saveSubject = async function(){
-
-    const subject =
-        document.getElementById("subject").value;
-
-    if(!subject) return;
-
-    await addDoc(
-        collection(db,"subjects"),
-        {
-            name:subject
-        }
-    );
-
-    loadSubjects();
-
-    document.getElementById("subject").value="";
-};
-
-async function loadSubjects(){
-
-    const list =
-        document.getElementById("subjects");
-
-    list.innerHTML="";
-
-    const snapshot =
-        await getDocs(collection(db,"subjects"));
-
-    snapshot.forEach(doc=>{
-
-        const li =
-            document.createElement("li");
-
-        li.textContent =
-            doc.data().name;
-
-        list.appendChild(li);
-
-    });
-
-}
-
-loadSubjects();
-
-</script>
-
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>&lt;!DOCTYPE html&gt;</b><b></b></span></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>&lt;html&gt;</b><b></b></span></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>&lt;head&gt;</b><b></b></span></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">    </span>&lt;title&gt;Revision Planner&lt;/title&gt;</b><b></b></span></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>&lt;/head&gt;</b><b></b></span></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>&lt;body&gt;</b><b></b></span></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000; min-height: 16.0px"><span class="s1"></span><br></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>&lt;h1&gt;</b></span><span class="s2">📚</span><span class="s1"><b> Revision Planner&lt;/h1&gt;</b><b></b></span></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000; min-height: 16.0px"><span class="s1"></span><br></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>&lt;input id="subject"&gt;</b><b></b></span></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>&lt;button onclick="saveSubject()"&gt;</b><b></b></span></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>Add Subject</b><b></b></span></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>&lt;/button&gt;</b><b></b></span></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000; min-height: 16.0px"><span class="s1"></span><br></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>&lt;ul id="subjects"&gt;&lt;/ul&gt;</b><b></b></span></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000; min-height: 16.0px"><span class="s1"></span><br></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>&lt;script type="module"&gt;</b><b></b></span></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000; min-height: 16.0px"><span class="s1"></span><br></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>import { initializeApp }</b><b></b></span></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>from "https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js";</b><b></b></span></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000; min-height: 16.0px"><span class="s1"></span><br></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>import {</b><b></b></span></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">  </span>getFirestore,</b><b></b></span></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">  </span>collection,</b><b></b></span></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">  </span>addDoc,</b><b></b></span></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">  </span>getDocs</b><b></b></span></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>}</b><b></b></span></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>from "https://www.gstatic.com/firebasejs/12.4.0/firebase-firestore.js";</b><b></b></span></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000; min-height: 16.0px"><span class="s1"></span><br></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>const firebaseConfig = {</b><b></b></span></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px 'Helvetica Neue'; color: #359630; -webkit-text-stroke: #359630"><span class="s3"><b><span class="Apple-converted-space">   </span></b></span><span class="s4">apiKey: </span><span class="s5">"AIzaSyDlEjqSBM6wet8PA9hb1f0rDMSHWh2JTO0"</span><span class="s4">,</span></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px 'Helvetica Neue'; color: #359630; -webkit-text-stroke: #359630"><span class="s4">  authDomain: </span><span class="s5">"brandon-revision-planner.firebaseapp.com"</span><span class="s4">,</span></h1>
+<p class="p4"><span class="s4">  projectId: </span><span class="s5">"brandon-revision-planner"</span><span class="s4">,</span></p>
+<p class="p4"><span class="s4">  storageBucket: </span><span class="s5">"brandon-revision-planner.firebasestorage.app"</span><span class="s4">,</span></p>
+<p class="p5"><span class="s5">  messagingSenderId: </span><span class="s6">"73560571331"</span><span class="s5">,</span></p>
+<p class="p4"><span class="s4">  appId: </span><span class="s5">"1:73560571331:web:3195f96abd42baad671176"</span><span class="s4">,</span></p>
+<p class="p5"><span class="s5">  measurementId: </span><span class="s6">"G-SKS5EFBR8Q"</span></p>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>};</b><b></b></span></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000; min-height: 16.0px"><span class="s1"></span><br></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>const app = initializeApp(firebaseConfig);</b><b></b></span></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>const db = getFirestore(app);</b><b></b></span></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000; min-height: 16.0px"><span class="s1"></span><br></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>window.saveSubject = async function(){</b><b></b></span></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000; min-height: 16.0px"><span class="s1"></span><br></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">    </span>const subject =</b><b></b></span></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">        </span>document.getElementById("subject").value;</b><b></b></span></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000; min-height: 16.0px"><span class="s1"></span><br></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">    </span>if(!subject) return;</b><b></b></span></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000; min-height: 16.0px"><span class="s1"></span><br></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">    </span>await addDoc(</b><b></b></span></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">        </span>collection(db,"subjects"),</b><b></b></span></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">        </span>{</b><b></b></span></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">            </span>name:subject,colour:"#2196f3"</b><b></b></span></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">        </span>}</b><b></b></span></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">    </span>);</b><b></b></span></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000; min-height: 16.0px"><span class="s1"></span><br></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">    </span>loadSubjects();</b><b></b></span></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000; min-height: 16.0px"><span class="s1"></span><br></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">    </span>document.getElementById("subject").value="";</b><b></b></span></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>};</b><b></b></span></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000; min-height: 16.0px"><span class="s1"></span><br></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>async function loadSubjects(){</b><b></b></span></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000; min-height: 16.0px"><span class="s1"></span><br></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">    </span>const list =</b><b></b></span></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">        </span>document.getElementById("subjects");</b><b></b></span></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000; min-height: 16.0px"><span class="s1"></span><br></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">    </span>list.innerHTML="";</b><b></b></span></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000; min-height: 16.0px"><span class="s1"></span><br></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">    </span>const snapshot =</b><b></b></span></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">        </span>await getDocs(collection(db,"subjects"));</b><b></b></span></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000; min-height: 16.0px"><span class="s1"></span><br></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">    </span>snapshot.forEach(doc=&gt;{</b><b></b></span></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000; min-height: 16.0px"><span class="s1"></span><br></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">        </span>const li =</b><b></b></span></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">            </span>document.createElement("li");</b><b></b></span></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000; min-height: 16.0px"><span class="s1"></span><br></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">        </span>li.textContent =</b><b></b></span></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">            </span>doc.data().name;</b><b></b></span></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000; min-height: 16.0px"><span class="s1"></span><br></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">        </span>list.appendChild(li);</b><b></b></span></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000; min-height: 16.0px"><span class="s1"></span><br></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">    </span>});</b><b></b></span></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000; min-height: 16.0px"><span class="s1"></span><br></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>}</b><b></b></span></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000; min-height: 16.0px"><span class="s1"></span><br></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>loadSubjects();</b><b></b></span></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000; min-height: 16.0px"><span class="s1"></span><br></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>&lt;/script&gt;</b><b></b></span></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000; min-height: 16.0px"><span class="s1"></span><br></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>&lt;/body&gt;</b><b></b></span></h1>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 13.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>&lt;/html&gt;</b><b></b></span></h1>
 </body>
 </html>
